@@ -9,6 +9,7 @@ const PORT = process.env.PORT;
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
 app.use(express.static("./Client"));
+app.use(express.cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/v1/products", productsRouter);
