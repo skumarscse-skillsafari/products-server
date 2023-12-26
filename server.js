@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/v1/products", productsRouter);
 app.use("/api/v1/users", usersRouter);
+app.get("/", (req, res) => {
+  res.status(200).send("<h2>Welcome to Products Page</h2>");
+});
 
 mongoose
   .connect(CONNECTION_URL)
