@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 import productsRouter from "./routes/productsRoute.js";
 import usersRouter from "./routes/userRoutes.js";
 dotenv.config();
@@ -9,7 +10,7 @@ const PORT = process.env.PORT;
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
 app.use(express.static("./Client"));
-app.use(express.cors());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/v1/products", productsRouter);
